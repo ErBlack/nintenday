@@ -1,15 +1,18 @@
 {
   "name": "nintenday",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "start": "sirv public --no-clear"
+    "start": "sirv public --no-clear",
+    "postversion": "npm run build && npm run publish && git push && git push --tags",
+    "publish": "ghpages -p public/nintenday/"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
+    "ghpages": "^0.0.10",
     "prettier": "^2.4.0",
     "rollup": "^2.3.4",
     "rollup-plugin-css-only": "^3.1.0",
