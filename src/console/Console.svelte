@@ -36,6 +36,7 @@
     img {
         transform: translate(-50%, -50%);
         user-select: none;
+        box-shadow: 5px 5px 5px rgba(0,0,0,.5);
     }
 </style>
 
