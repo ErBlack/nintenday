@@ -1,6 +1,6 @@
 <script>
 	import Desk from './Desk.svelte';
-	import Console from './Console.svelte';
+	import Console from './console/Console.svelte';
 
 	const gw = new Array(10).fill({}).map((props, i) => ({
 		...props,
