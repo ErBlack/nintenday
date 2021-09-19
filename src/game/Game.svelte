@@ -2,6 +2,7 @@
   import preload from "../lib/preloadImage";
   import Sprite from "./Sprite.svelte";
   import Controls from "./Controls.svelte";
+  import Egg from "./Egg.svelte";
 
   import Basket from "./Basket.svelte";
   import Wolf from "./Wolf.svelte";
@@ -16,6 +17,7 @@
   <Controls />
   <Basket />
   <Wolf />
+  <Egg d="lb" stage="0" />
   <Sprite name="c1" width="3.6%" left="51.5%" top="38.2%" />
   <Sprite name="c2" width="3.5%" left="55.4%" top="38.1%" />
   <Sprite name="c3" width="3.3%" left="59.1%" top="38.0%" />
@@ -29,96 +31,6 @@
   <Sprite name="cr4" width="2.4%" left="71.5%" top="66.2%" />
   <Sprite name="ebl" width="7.4%" left="34.6%" top="68.9%" />
   <Sprite name="ebr" width="7.7%" left="57.3%" top="69.2%" />
-  <Sprite name="e" width="1.7%" left="29.7%" top="40.0%" rotate="33" id="lt1" />
-  <Sprite name="e" width="1.7%" left="31.3%" top="41.6%" rotate="95" id="lt2" />
-  <Sprite name="e" width="1.5%" left="33.0%" top="43.8%" id="lt3" />
-  <Sprite name="e" width="1.6%" left="34.5%" top="44.8%" rotate="-124" />
-  <Sprite name="e" width="1.7%" left="35.9%" top="47.2%" rotate="-53" />
-  <Sprite
-    name="e"
-    width="1.7%"
-    left="29.3%"
-    top="51.6%"
-    rotate="-15"
-    id="lb1"
-  />
-  <Sprite name="e" width="1.6%" left="31.0%" top="53.3%" rotate="36" id="lb2" />
-  <Sprite name="e" width="1.7%" left="32.8%" top="54.8%" rotate="66" id="lb3" />
-  <Sprite
-    name="e"
-    width="1.6%"
-    left="34.5%"
-    top="56.6%"
-    rotate="171"
-    id="lb4"
-  />
-  <Sprite
-    name="e"
-    width="1.7%"
-    left="35.9%"
-    top="58.6%"
-    rotate="-123"
-    id="lb5"
-  />
-  <Sprite name="e" width="1.6%" left="69.5%" top="39.6%" rotate="21" id="rt1" />
-  <Sprite name="e" width="1.6%" left="67.8%" top="41.0%" rotate="5" id="rt2" />
-  <Sprite
-    name="e"
-    width="1.5%"
-    left="66.0%"
-    top="43.1%"
-    rotate="-40"
-    id="rt3"
-  />
-  <Sprite
-    name="e"
-    width="1.8%"
-    left="64.1%"
-    top="44.5%"
-    rotate="-105"
-    id="rt4"
-  />
-  <Sprite
-    name="e"
-    width="1.6%"
-    left="62.7%"
-    top="47.3%"
-    rotate="-169"
-    id="rt5"
-  />
-  <Sprite
-    name="e"
-    width="1.7%"
-    left="69.2%"
-    top="51.4%"
-    rotate="-144"
-    id="rb1"
-  />
-  <Sprite
-    name="e"
-    width="1.5%"
-    left="67.6%"
-    top="53.7%"
-    rotate="-185"
-    id="rb2"
-  />
-  <Sprite
-    name="e"
-    width="1.7%"
-    left="65.9%"
-    top="54.9%"
-    rotate="110"
-    id="rb3"
-  />
-  <Sprite name="e" width="1.6%" left="64.1%" top="56.7%" rotate="48" id="rb4" />
-  <Sprite
-    name="e"
-    width="1.6%"
-    left="62.5%"
-    top="59.2%"
-    rotate="-32"
-    id="rb5"
-  />
 </div>
 
 <style>

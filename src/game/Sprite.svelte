@@ -4,14 +4,12 @@
   export let left;
   export let top;
   export let active = false;
-  export let id = undefined;
   export let rotate = 0;
 
   const src = `/nintenday/${name}.png`;
 </script>
 
 <img
-  data-id={id}
   class="sprite"
   class:active
   {src}
