@@ -1,36 +1,36 @@
 <script>
   import preload from "../lib/preloadImage";
-  import Sprite from "./Sprite.svelte";
+
   import Controls from "./Controls.svelte";
   import Egg from "./Egg.svelte";
-
   import Basket from "./Basket.svelte";
   import Wolf from "./Wolf.svelte";
-  import { started } from "./store";
+  import Score from "./Score.svelte";
+  import Fail from "./Fail.svelte";
+  import Chicken from "./Chicken.svelte";
+
+  import { eggs, chickens, started } from "./store";
+  import { start } from "./loop";
 
   const background = "/nintenday/game.jpg";
+
+  start();
 
   preload(background);
 </script>
 
 <div class="game" class:started={$started}>
+  <Score />
   <Controls />
+  <Fail />
   <Basket />
   <Wolf />
-  <Egg d="lb" stage="0" />
-  <Sprite name="c1" width="3.6%" left="51.5%" top="38.2%" />
-  <Sprite name="c2" width="3.5%" left="55.4%" top="38.1%" />
-  <Sprite name="c3" width="3.3%" left="59.1%" top="38.0%" />
-  <Sprite name="cl1" width="3.4%" left="33.4%" top="62.0%" />
-  <Sprite name="cl2" width="2.4%" left="31.6%" top="65.8%" />
-  <Sprite name="cl3" width="2.6%" left="29.0%" top="66.1%" />
-  <Sprite name="cl4" width="2.9%" left="25.8%" top="66.4%" />
-  <Sprite name="cr1" width="3.7%" left="63.2%" top="62.3%" />
-  <Sprite name="cr2" width="2.3%" left="66.3%" top="66.0%" />
-  <Sprite name="cr3" width="2.4%" left="68.7%" top="66.3%" />
-  <Sprite name="cr4" width="2.4%" left="71.5%" top="66.2%" />
-  <Sprite name="ebl" width="7.4%" left="34.6%" top="68.9%" />
-  <Sprite name="ebr" width="7.7%" left="57.3%" top="69.2%" />
+  {#each $eggs as egg}
+    <Egg d={egg.d} s={egg.s} />
+  {/each}
+  {#each $chickens as chicken}
+    <Chicken d={chicken.d} s={chicken.s} />
+  {/each}
 </div>
 
 <style>
