@@ -1,5 +1,4 @@
 <script>
-  import preload from "../lib/preloadImage";
   import { createEventDispatcher } from "svelte";
 
   const dispatch = createEventDispatcher();
@@ -10,7 +9,7 @@
 
   let localActive = false;
 
-  const src = `/nintenday/bp.png`;
+  const src = "/nintenday/bp.png";
 
   const activate = () => {
     localActive = true;
@@ -20,8 +19,6 @@
     localActive = false;
     dispatch("deactivate");
   };
-
-  preload(src);
 </script>
 
 <img
@@ -45,6 +42,9 @@
   .button {
     position: absolute;
     user-select: none;
+    padding: 20px;
+    margin: -20px;
+    border-radius: 100%;
   }
 
   .button:not(.pressed) {

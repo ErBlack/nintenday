@@ -5,13 +5,14 @@
 
   import Basket from "./Basket.svelte";
   import Wolf from "./Wolf.svelte";
+  import { started } from "./store";
 
   const background = "/nintenday/game.jpg";
 
   preload(background);
 </script>
 
-<div class="game">
+<div class="game" class:started={$started}>
   <Controls />
   <Basket />
   <Wolf />
@@ -129,6 +130,10 @@
     bottom: 0;
     margin: auto;
     background: center / 100% url("/nintenday/game.jpg") no-repeat;
+  }
+
+  .game:not(.started) {
+    display: none;
   }
 
   @media (min-aspect-ratio: 2388/1422) {
