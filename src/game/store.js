@@ -11,7 +11,7 @@ export const H = {
 };
 
 export const open = writable(false);
-export const playing = writable(true);
+export const playing = writable(false);
 
 export const eggs = writable([]);
 export const chickens = writable([]);

@@ -9,7 +9,7 @@
 
   const thatOne = filename === "g03.jpg";
   const image = `/nintenday/${filename}`;
-  const rotate = thatOne ? 0 : random(0, 60) - 30;
+  const rotate = random(0, 60) - 30;
 
   const savePosition = (x, y) => {
     const { clientWidth, clientHeight } = document.body;
@@ -31,6 +31,7 @@
 
 <div
   class="console"
+  data-type={filename}
   style="left: {$positions[filename]?.left}%; top: {$positions[filename]
     ?.top}%; transform: rotate({rotate}deg); z-index: {$positions[filename]
     ?.z || 0}"

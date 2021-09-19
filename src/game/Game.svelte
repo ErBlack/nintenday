@@ -8,19 +8,23 @@
   import Score from "./Score.svelte";
   import Fail from "./Fail.svelte";
   import Chicken from "./Chicken.svelte";
+  import Start from "./Start.svelte";
 
-  import { eggs, chickens, open } from "./store";
+  import { eggs, chickens, open, playing } from "./store";
   import { start } from "./loop";
 
   const background = "/nintenday/game.jpg";
 
-  start();
-
   preload(background);
 </script>
 
-{#if $open}
-  <div class="game">
+<div class="game" class:open={$open}>
+  <Start
+    on:click={() => {
+      start();
+    }}
+  />
+  {#if $playing}
     <Score />
     <Controls />
     <Fail />
@@ -32,8 +36,8 @@
     {#each $chickens as chicken}
       <Chicken d={chicken.d} s={chicken.s} />
     {/each}
-  </div>
-{/if}
+  {/if}
+</div>
 
 <style>
   .game {
@@ -44,6 +48,11 @@
     bottom: 0;
     margin: auto;
     background: center / 100% url("/nintenday/game.jpg") no-repeat;
+  }
+
+  .game:not(.open) {
+    z-index: -1;
+    visibility: hidden;
   }
 
   @media (min-aspect-ratio: 2388/1422) {

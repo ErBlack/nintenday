@@ -1,7 +1,7 @@
 import { Egg } from "./models/Egg";
 import { Chicken } from "./models/Chicken";
 import { get } from "svelte/store";
-import { eggs, chickens, score, fails } from "./store";
+import { eggs, chickens, score, fails, playing } from "./store";
 import { BREAK, SPEED } from "./const";
 import random from "../lib/random";
 
@@ -17,6 +17,8 @@ const getSpawnOffset = () => {
 };
 
 export const start = () => {
+  stop();
+
   startTime = Date.now();
   lastTime = startTime;
 
@@ -29,10 +31,12 @@ export const start = () => {
   level = 1;
 
   loopId = requestAnimationFrame(tick);
+  playing.set(true);
 };
 
 export const stop = () => {
   cancelAnimationFrame(loopId);
+  playing.set(false);
 };
 
 const tick = () => {
