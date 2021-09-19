@@ -10,7 +10,8 @@ export const H = {
   right: false,
 };
 
-export const started = writable(true);
+export const open = writable(false);
+export const playing = writable(true);
 
 export const eggs = writable([]);
 export const chickens = writable([]);

@@ -87,6 +87,7 @@
   left="7.67%"
   top="61.98%"
   active={blt}
+  hit
   on:activate={() => {
     $basketH = H.left;
     $basketV = V.top;
@@ -97,6 +98,7 @@
   left="84.65%"
   top="61.59%"
   active={brt}
+  hit
   on:activate={() => {
     $basketH = H.right;
     $basketV = V.top;
@@ -107,6 +109,7 @@
   left="84.51%"
   top="78.95%"
   active={brb}
+  hit
   on:activate={() => {
     $basketH = H.right;
     $basketV = V.bottom;
@@ -117,6 +120,7 @@
   left="7.68%"
   top="79.65%"
   active={blb}
+  hit
   on:activate={() => {
     $basketH = H.left;
     $basketV = V.bottom;

@@ -9,7 +9,7 @@
   import Fail from "./Fail.svelte";
   import Chicken from "./Chicken.svelte";
 
-  import { eggs, chickens, started } from "./store";
+  import { eggs, chickens, open } from "./store";
   import { start } from "./loop";
 
   const background = "/nintenday/game.jpg";
@@ -19,19 +19,21 @@
   preload(background);
 </script>
 
-<div class="game" class:started={$started}>
-  <Score />
-  <Controls />
-  <Fail />
-  <Basket />
-  <Wolf />
-  {#each $eggs as egg}
-    <Egg d={egg.d} s={egg.s} />
-  {/each}
-  {#each $chickens as chicken}
-    <Chicken d={chicken.d} s={chicken.s} />
-  {/each}
-</div>
+{#if $open}
+  <div class="game">
+    <Score />
+    <Controls />
+    <Fail />
+    <Basket />
+    <Wolf />
+    {#each $eggs as egg}
+      <Egg d={egg.d} s={egg.s} />
+    {/each}
+    {#each $chickens as chicken}
+      <Chicken d={chicken.d} s={chicken.s} />
+    {/each}
+  </div>
+{/if}
 
 <style>
   .game {
@@ -42,10 +44,6 @@
     bottom: 0;
     margin: auto;
     background: center / 100% url("/nintenday/game.jpg") no-repeat;
-  }
-
-  .game:not(.started) {
-    display: none;
   }
 
   @media (min-aspect-ratio: 2388/1422) {

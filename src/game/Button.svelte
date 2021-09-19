@@ -5,7 +5,9 @@
 
   export let left;
   export let top;
+  export let width = "7.52%";
   export let active = false;
+  export let hit = false;
 
   let localActive = false;
 
@@ -32,8 +34,9 @@
   role="button"
   class="button"
   class:pressed={localActive || active}
+  class:hit
   {src}
-  width="7.52%"
+  {width}
   style={`left: ${left}; top: ${top}`}
   alt
 />
@@ -42,9 +45,12 @@
   .button {
     position: absolute;
     user-select: none;
+    border-radius: 100%;
+  }
+
+  .hit {
     padding: 20px;
     margin: -20px;
-    border-radius: 100%;
   }
 
   .button:not(.pressed) {
