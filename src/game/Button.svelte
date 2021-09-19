@@ -1,48 +1,53 @@
 <script>
-    import preload from '../lib/preloadImage';
-	import { createEventDispatcher } from 'svelte';
+  import preload from "../lib/preloadImage";
+  import { createEventDispatcher } from "svelte";
 
-	const dispatch = createEventDispatcher();
+  const dispatch = createEventDispatcher();
 
-    const width = '7.52%';
-    export let left;
-    export let top;
-    export let id;
-    export let active = false;
+  export let left;
+  export let top;
+  export let active = false;
 
-    const src = `/nintenday/bp.png`;
+  let localActive = false;
 
-    const activate = () => dispatch('activate');
-    const deactivate = () => dispatch('deactivate');
+  const src = `/nintenday/bp.png`;
 
-    preload(src);
+  const activate = () => {
+    localActive = true;
+    dispatch("activate");
+  };
+  const deactivate = () => {
+    localActive = false;
+    dispatch("deactivate");
+  };
+
+  preload(src);
 </script>
 
-<style>
-    .button {
-        position: absolute;
-        user-select: none;
-    }
-
-    .button:not(.active) {
-        opacity: 0;
-    }
-</style>
-
 <img
-    on:mousedown={activate}
-    on:mouseup={deactivate}
-    on:mouseout={deactivate}
-    on:blur={deactivate}
-    on:touchstart={activate}
-    on:touchend={deactivate}
-    on:dragstart={e => e.preventDefault()}
-    role="button"
-    data-id={id}
-    class="button"
-    class:active={active}
-    src={src}
-    width={width}
-    style={`left: ${left}; top: ${top}`}
-    alt
+  on:mousedown={activate}
+  on:mouseup={deactivate}
+  on:mouseout={deactivate}
+  on:blur={deactivate}
+  on:touchstart={activate}
+  on:touchend={deactivate}
+  on:dragstart={(e) => e.preventDefault()}
+  role="button"
+  class="button"
+  class:pressed={localActive || active}
+  {src}
+  width="7.52%"
+  style={`left: ${left}; top: ${top}`}
+  alt
 />
+
+<style>
+  .button {
+    position: absolute;
+    user-select: none;
+  }
+
+  .button:not(.pressed) {
+    opacity: 0;
+  }
+</style>
