@@ -24,6 +24,7 @@
 </script>
 
 <img
+  on:click
   on:mousedown={activate}
   on:mouseup={deactivate}
   on:mouseout={deactivate}
