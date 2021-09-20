@@ -1,6 +1,8 @@
 <script>
   import Button from "../game/Button.svelte";
+  import { assetsReady } from "../game/preload";
   import { open } from "../game/store";
+  import { expand } from '../expand';
 
   let stage = 0;
 </script>
@@ -19,7 +21,13 @@
   on:activate={() => {
     stage = stage === 3 ? 4 : 0;
 
-    if (stage === 4) $open = true;
+    if (stage === 4) {
+      assetsReady
+      .then(() => expand())
+      .then(() => {
+        $open = true;
+      })
+    }
 
     setTimeout(() => (stage = 0), 500);
   }}

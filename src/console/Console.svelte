@@ -9,32 +9,43 @@
 
   const thatOne = filename === "g03.jpg";
   const image = `/nintenday/${filename}`;
-  const rotate = random(0, 60) - 30;
 
-  const savePosition = (x, y) => {
-    const { clientWidth, clientHeight } = document.body;
+  const savePosition = (x, y, r) => {
+    const change = {};
+
+    if (x !== undefined && y !== undefined) {
+      const { clientWidth, clientHeight } = document.body;
+
+      Object.assign(change, {
+        left: (x / clientWidth) * 100,
+        top: (y / clientHeight) * 100,
+      });
+    }
+
+    if (r !== undefined) {
+      change.r = ((Object($positions[filename]).r || 0) + r) % 360;
+    }
 
     $positions = {
       ...$positions,
       [filename]: {
         ...Object($positions[filename]),
-        left: (x / clientWidth) * 100,
-        top: (y / clientHeight) * 100,
+        ...change
       },
     };
   };
 
   const { onTouchStart, onTouchEnd, onTouchMove } =
     getTouchHandles(savePosition);
-  const { onMouseDown, onMouseMove, onMouseUp } = getMouseHandles(savePosition);
+  const { onMouseDown, onMouseMove, onMouseUp, onMouseWheel } = getMouseHandles(savePosition);
 </script>
 
 <div
   class="console"
   data-type={filename}
-  style="left: {$positions[filename]?.left}%; top: {$positions[filename]
-    ?.top}%; transform: rotate({rotate}deg); z-index: {$positions[filename]
-    ?.z || 0}"
+  style="left: {$positions[filename]?.left || 0}%; top: {$positions[filename]
+    ?.top || 0}%; transform: rotate({$positions[filename]?.r || 0}deg);"
+  on:mousewheel={onMouseWheel}
   on:mousedown|preventDefault={onMouseDown}
   on:mousemove={onMouseMove}
   on:mouseup={onMouseUp}

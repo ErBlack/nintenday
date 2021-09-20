@@ -17,6 +17,9 @@ export const getMouseHandles = (savePosition) => {
         onMouseUp: () => {
             offsetX = null;
             offsetY = null;
+        },
+        onMouseWheel: ({deltaY}) => {
+            savePosition(undefined, undefined, Math.sign(deltaY))
         }
     }
 }

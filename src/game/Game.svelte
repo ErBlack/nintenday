@@ -20,9 +20,7 @@
 
 <div class="game" class:open={$open}>
   <Start
-    on:click={() => {
-      start();
-    }}
+    on:click={start}
   />
   {#if $playing}
     <Score />
