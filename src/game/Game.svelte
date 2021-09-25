@@ -9,12 +9,13 @@
   import Fail from "./Fail.svelte";
   import Chicken from "./Chicken.svelte";
   import Start from "./Start.svelte";
-  import {initSound} from './ost';
+  import { initSound } from "./ost";
 
   import { eggs, chickens, open, playing } from "./store";
   import { start, stop } from "./loop";
+  import Exit from "./Exit.svelte";
 
-  open.subscribe(value => {
+  open.subscribe((value) => {
     if (!value) {
       stop();
     } else {
@@ -22,15 +23,14 @@
     }
   });
 
-  const background = "/nintenday/game.jpg";
+  const background = "/nintenday/game.webp";
 
   preload(background);
 </script>
 
 <div class="game" class:open={$open}>
-  <Start
-    on:click={start}
-  />
+  <Start on:click={start} />
+  <Exit on:click={() => ($open = false)} />
   {#if $playing}
     <Score />
     <Controls />
@@ -54,7 +54,7 @@
     top: 0;
     bottom: 0;
     margin: auto;
-    background: center / 100% url("/nintenday/game.jpg") no-repeat;
+    background: center / 100% url("/nintenday/game.webp") no-repeat;
     z-index: 2;
     box-shadow: inset 0 0 20px rgb(0 0 0 / 70%);
   }

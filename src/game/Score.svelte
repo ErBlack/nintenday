@@ -7,23 +7,23 @@
 <style>
   .score {
     position: absolute;
-    right: 34%;
-    top: 25%;
+    right: 33.77%;
+    top: 25.5%;
+    transform: scale(0.86, 1);
     line-height: 1;
     font-family: digits, monospace;
-    color: #010101;
+    color: #171717;
   }
 
   @media (min-aspect-ratio: 2388/1422) {
     .score {
-      font-size: calc((95vh / 1422 * 2388) / 18);
+      font-size: calc((95vh / 1422 * 2388) / 13);
     }
   }
 
   @media (max-aspect-ratio: 2388/1422) {
     .score {
-      font-size: calc(95vw / 18);
+      font-size: calc(95vw / 13);
     }
   }
-
 </style>

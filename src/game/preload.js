@@ -16,7 +16,7 @@ const files = [
   "e.png",
   "ebl.png",
   "ebr.png",
-  "game.jpg",
+  "game.webp",
   "wbl.png",
   "wbr.png",
   "whlb.png",

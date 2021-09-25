@@ -70,7 +70,6 @@
   };
 
   const onkeyup = () => {
-    console.log('keyup')
     blt = false;
     brt = false;
     brb = false;
@@ -79,8 +78,8 @@
 
   Object.assign(document.body, {
     onkeyup,
-    onkeydown
-  })
+    onkeydown,
+  });
 </script>
 
 <!-- ↖ -->

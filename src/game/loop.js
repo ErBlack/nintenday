@@ -1,9 +1,10 @@
-import { Egg } from './models/Egg';
-import { Chicken } from './models/Chicken';
-import { get } from 'svelte/store';
-import { eggs, chickens, score, fails, playing } from './store';
-import { BREAK, SPEED } from './const';
-import random from '../lib/random';
+import { Egg } from "./models/Egg";
+import { Chicken } from "./models/Chicken";
+import { get } from "svelte/store";
+import { eggs, chickens, score, fails, playing } from "./store";
+import { BREAK, SPEED } from "./const";
+import random from "../lib/random";
+import { over } from "./ost";
 
 let startTime;
 let lastTime;
@@ -77,6 +78,11 @@ const tick = () => {
           newScore += 1;
         } else {
           newFails += 1;
+
+          if (newFails === 3) {
+            over.currentTime = 0;
+            over.play();
+          }
 
           newChickens.push(new Chicken(egg.d === 0 || egg.d === 3 ? 0 : 1));
           breakDelay = BREAK;
