@@ -7,10 +7,11 @@
 <style>
   .score {
     position: absolute;
-    font-size: 60px;
     right: 34%;
     top: 25%;
     line-height: 1;
+    font-family: digits, monospace;
+    color: #010101;
   }
 
   @media (min-aspect-ratio: 2388/1422) {
@@ -24,4 +25,5 @@
       font-size: calc(95vw / 18);
     }
   }
+
 </style>
