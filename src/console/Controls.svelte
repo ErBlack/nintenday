@@ -15,8 +15,8 @@
 
     if (stage === 4 && stage !== temp) {
       assetsReady
-      .then(() => expand())
       .then(() => {
+        expand();
         $open = true;
       })
 
@@ -24,6 +24,12 @@
     }
   };
 </script>
+
+<svelte:body on:keydown={({key}) => {
+  if (key === 'Escape') {
+     $open = false
+  }
+}}/>
 
 <Button
   width="31px"

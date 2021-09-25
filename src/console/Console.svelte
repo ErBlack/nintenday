@@ -61,6 +61,7 @@
 <svelte:window on:resize={updateScale}/>
 <div
   class="console"
+  class:hidden={$open && thatOne}
   data-type={filename}
   style="left: {$positions[filename]?.left || 0}%; top: {$positions[filename]
     ?.top || 0}%; transform: rotate({$positions[filename]?.r || 0}deg) scale({scale});"
@@ -91,6 +92,10 @@
   img {
     transform: translate(-50%, -50%);
     user-select: none;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5), inset 0 0 3px #000;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.7), inset 0 0 3px #000;
+  }
+
+  .hidden {
+    display: none;
   }
 </style>

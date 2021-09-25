@@ -15,7 +15,7 @@ const selectorBig = '.game';
 const selectorSmall = `[src="/nintenday/${filename}"]`;
 const animationName = 'expand';
 const style = document.createElement('style');
-const duration = 500;
+const duration = 400;
 
 document.head.appendChild(style);
 

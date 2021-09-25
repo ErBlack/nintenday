@@ -2,6 +2,7 @@
   import Desk from "./Desk.svelte";
   import Console from "./console/Console.svelte";
   import Game from "./game/Game.svelte";
+  import Paranja from './Paranja.svelte';
 
   const gw = new Array(10).fill({}).map((props, i) => ({
     ...props,
@@ -15,6 +16,7 @@
       <Console {...console} />
     {/each}
   </Desk>
+  <Paranja/>
   <Game />
 </main>
 

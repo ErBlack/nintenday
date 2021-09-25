@@ -48,6 +48,7 @@
     position: absolute;
     user-select: none;
     border-radius: 100%;
+    cursor: pointer;
   }
 
   .hit {

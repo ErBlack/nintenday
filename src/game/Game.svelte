@@ -11,7 +11,13 @@
   import Start from "./Start.svelte";
 
   import { eggs, chickens, open, playing } from "./store";
-  import { start } from "./loop";
+  import { start, stop } from "./loop";
+
+  open.subscribe(value => {
+    if (!value) {
+      stop();
+    }
+  });
 
   const background = "/nintenday/game.jpg";
 
@@ -46,6 +52,8 @@
     bottom: 0;
     margin: auto;
     background: center / 100% url("/nintenday/game.jpg") no-repeat;
+    z-index: 2;
+    box-shadow: inset 0 0 20px rgb(0 0 0 / 70%);
   }
 
   .game:not(.open) {

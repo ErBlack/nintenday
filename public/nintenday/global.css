@@ -15,9 +15,23 @@ body {
     linear-gradient(to bottom, #988a7f, #4e4a49);
   background-repeat: no-repeat;
   background-size: cover;
-  box-shadow: inset 0 0 25vh rgba(0, 0, 0, 0.3);
+  background-attachment: fixed;
+  background-position-x: center;
+  background-position-y: top;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+}
+
+@media (orientation: portrait) {
+  body {
+    box-shadow: inset 0 0 25vw rgba(0, 0, 0, 0.3);
+  }
+}
+
+@media (orientation: landscape) {
+  body {
+    box-shadow: inset 0 0 25vh rgba(0, 0, 0, 0.3);
+  }
 }
 
 a {

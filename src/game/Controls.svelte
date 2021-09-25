@@ -69,19 +69,15 @@
     }
   };
 
-  const onkeyup = ({ key, code }) => {
+  const onkeyup = () => {
     blt = false;
     brt = false;
     brb = false;
     blb = false;
   };
-
-  Object.assign(document.body, {
-    onkeyup,
-    onkeydown,
-  });
 </script>
 
+<svelte:body on:keydown={onkeydown} on:keydown={onkeyup}/>
 <!-- ↖ -->
 <Button
   left="7.67%"
