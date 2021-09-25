@@ -1,2 +1,3 @@
-export const SPEED = 600;
-export const BREAK = 300;
+export const SPEED = 800;
+export const BREAK = 2500;
+export const CHIKEN_SPEED = 500;

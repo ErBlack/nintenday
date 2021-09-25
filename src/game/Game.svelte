@@ -9,6 +9,7 @@
   import Fail from "./Fail.svelte";
   import Chicken from "./Chicken.svelte";
   import Start from "./Start.svelte";
+  import {initSound} from './ost';
 
   import { eggs, chickens, open, playing } from "./store";
   import { start, stop } from "./loop";
@@ -16,6 +17,8 @@
   open.subscribe(value => {
     if (!value) {
       stop();
+    } else {
+      initSound();
     }
   });
 
