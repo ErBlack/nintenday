@@ -5,45 +5,55 @@
   import { expand } from '../expand';
 
   let stage = 0;
+
+  const s1 = () => stage = stage === 0 || stage === 1 ? 1 : 0;
+  const s2 = () => stage = stage === 1 || stage === 2 ? 2 : 0;
+  const s3 = () => stage = stage === 2 || stage === 3 ? 3 : 0;
+  const s4 = () => {
+    const temp = stage;
+    stage = stage === 3 || stage === 4 ? 4 : 0
+
+    if (stage === 4 && stage !== temp) {
+      assetsReady
+      .then(() => expand())
+      .then(() => {
+        $open = true;
+      })
+
+      setTimeout(() => (stage = 0), 500);
+    }
+  };
 </script>
 
 <Button
   width="31px"
   top="29px"
   left="-178px"
-  on:click={() => (stage = stage === 0 ? 1 : 0)}
+  on:touchstart={s1}
+  on:click={s1}
   active={stage > 0}
 />
 <Button
   width="31px"
   top="28px"
   left="146px"
-  on:click={() => {
-    stage = stage === 3 ? 4 : 0;
-
-    if (stage === 4) {
-      assetsReady
-      .then(() => expand())
-      .then(() => {
-        $open = true;
-      })
-    }
-
-    setTimeout(() => (stage = 0), 500);
-  }}
+  on:touchstart={s4}
+  on:click={s4}
   active={stage > 3}
 />
 <Button
   width="31px"
   top="71px"
   left="146px"
-  on:click={() => (stage = stage === 1 ? 2 : 0)}
+  on:touchstart={s2}
+  on:click={s2}
   active={stage > 1}
 />
 <Button
   width="31px"
   top="73px"
   left="-178px"
-  on:click={() => (stage = stage === 2 ? 3 : 0)}
+  on:touchstart={s3}
+  on:click={s3}
   active={stage > 2}
 />

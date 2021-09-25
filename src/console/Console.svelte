@@ -1,16 +1,32 @@
 <script>
-  import random from "../lib/random";
   import { positions } from "../stores/positions";
   import { getTouchHandles } from "./touchHandles";
   import { getMouseHandles } from "./mouseHandles";
   import Controls from "./Controls.svelte";
+  import { open } from "../game/store";
 
   export let filename;
+
+  const FULL_WIDTH = 768;
+
+  let scale;
+
+  const updateScale = () => {
+    if (window.innerWidth >= FULL_WIDTH) {
+      scale = 1;
+    } else {
+      scale = (window.innerWidth / FULL_WIDTH);
+    }
+  }
+
+  updateScale();
 
   const thatOne = filename === "g03.jpg";
   const image = `/nintenday/${filename}`;
 
   const savePosition = (x, y, r) => {
+    if ($open) return;
+
     const change = {};
 
     if (x !== undefined && y !== undefined) {
@@ -40,11 +56,12 @@
   const { onMouseDown, onMouseMove, onMouseUp, onMouseWheel } = getMouseHandles(savePosition);
 </script>
 
+<svelte:window on:resize={updateScale}/>
 <div
   class="console"
   data-type={filename}
   style="left: {$positions[filename]?.left || 0}%; top: {$positions[filename]
-    ?.top || 0}%; transform: rotate({$positions[filename]?.r || 0}deg);"
+    ?.top || 0}%; transform: rotate({$positions[filename]?.r || 0}deg) scale({scale});"
   on:mousewheel={onMouseWheel}
   on:mousedown|preventDefault={onMouseDown}
   on:mousemove={onMouseMove}

@@ -25,6 +25,7 @@
 
 <img
   on:click
+  on:touchstart
   on:mousedown={activate}
   on:mouseup={deactivate}
   on:mouseout={deactivate}
