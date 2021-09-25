@@ -51,7 +51,7 @@
   on:mouseup={onMouseUp}
   on:mouseout={onMouseUp}
   on:blur={onMouseUp}
-  on:touchstart={onTouchStart}
+  on:touchstart|preventDefault={onTouchStart}
   on:touchmove|preventDefault={onTouchMove}
   on:touchend={onTouchEnd}
 >
@@ -66,11 +66,12 @@
     position: absolute;
     width: 0;
     height: 0;
+    user-select: none;
   }
 
   img {
     transform: translate(-50%, -50%);
     user-select: none;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5), inset 0 0 3px #000;
   }
 </style>
