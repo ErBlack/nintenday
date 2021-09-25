@@ -24,6 +24,8 @@
   const thatOne = filename === "g03.jpg";
   const image = `/nintenday/${filename}`;
 
+  const bound = (v) => Math.max(0, Math.min(100, v));
+
   const savePosition = (x, y, r) => {
     if ($open) return;
 
@@ -33,8 +35,8 @@
       const { clientWidth, clientHeight } = document.body;
 
       Object.assign(change, {
-        left: (x / clientWidth) * 100,
-        top: (y / clientHeight) * 100,
+        left: bound((x / clientWidth) * 100),
+        top: bound((y / clientHeight) * 100),
       });
     }
 
