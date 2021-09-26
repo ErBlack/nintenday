@@ -12,7 +12,7 @@ preload('/nintenday/nesc.webp').then(() => {
 
 </script>
 {#if  ready}
-<main class="invitation" class:inbound={ready} class:hidden={$hidden || $open}>
+<main class="invitation" class:inbound={ready} class:hidden={$hidden || $open} on:touchmove|preventDefault>
     <Content/>
 </main>
 {/if}

@@ -9,6 +9,6 @@
 }
 </style>
 
-<section class="desk">
+<section class="desk"  on:touchmove|preventDefault>
     <slot></slot>
 </section>
