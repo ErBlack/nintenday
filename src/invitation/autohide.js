@@ -1,7 +1,7 @@
 import { get } from 'svelte/store';
 import { hidden } from './store';
 
-const SHOW_TIMEOUT = 15000;
+const SHOW_TIMEOUT = 30000;
 const HIDE_TIMEOUT = 5000;
 const CANCEL_TIMEOUT = 1000;
 

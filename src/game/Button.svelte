@@ -8,6 +8,7 @@
   export let width = "7.52%";
   export let active = false;
   export let hit = false;
+  export let small = false;
 
   let localActive = false;
 
@@ -37,6 +38,7 @@
   class="button"
   class:pressed={localActive || active}
   class:hit
+  class:small
   {src}
   {width}
   style={`left: ${left}; top: ${top}`}
@@ -47,13 +49,17 @@
   .button {
     position: absolute;
     user-select: none;
-    border-radius: 100%;
     cursor: pointer;
   }
 
   .hit {
     padding: 20px;
     margin: -20px;
+  }
+
+  .small {
+    padding: 7px;
+    margin: -7px;
   }
 
   .button:not(.pressed) {

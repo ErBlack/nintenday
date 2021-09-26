@@ -37,6 +37,7 @@
   left="-178px"
   on:touchstart={s1}
   on:click={s1}
+  small
   active={stage > 0}
 />
 <Button
@@ -45,6 +46,7 @@
   left="146px"
   on:touchstart={s4}
   on:click={s4}
+  small
   active={stage > 3}
 />
 <Button
@@ -53,6 +55,7 @@
   left="146px"
   on:touchstart={s2}
   on:click={s2}
+  small
   active={stage > 1}
 />
 <Button
@@ -61,5 +64,6 @@
   left="-178px"
   on:touchstart={s3}
   on:click={s3}
+  smallq
   active={stage > 2}
 />
