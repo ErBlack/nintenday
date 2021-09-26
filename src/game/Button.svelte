@@ -7,7 +7,6 @@
   export let top;
   export let width = "7.52%";
   export let active = false;
-  export let hit = false;
 
   let localActive = false;
 
@@ -49,9 +48,6 @@
     user-select: none;
     border-radius: 100%;
     cursor: pointer;
-  }
-
-  .hit {
     padding: 20px;
     margin: -20px;
   }
