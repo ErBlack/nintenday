@@ -69,7 +69,6 @@
   on:mousedown|preventDefault={onMouseDown}
   on:mousemove={onMouseMove}
   on:mouseup={onMouseUp}
-  on:mouseout={onMouseUp}
   on:blur={onMouseUp}
   on:touchstart|preventDefault={onTouchStart}
   on:touchmove|preventDefault={onTouchMove}
