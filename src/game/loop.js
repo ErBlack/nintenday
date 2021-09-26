@@ -105,7 +105,7 @@ const tick = () => {
         newEggs.push(new Egg());
       }
 
-      spawnDelay = SPEED * speedMultiplier + getOffset();
+      spawnDelay = SPEED * speedMultiplier + getOffset() * Math.min(newEggs.length + 1, 2);
     }
 
     eggs.set(newEggs);
