@@ -35,7 +35,6 @@
   role="button"
   class="button"
   class:pressed={localActive || active}
-  class:hit
   {src}
   {width}
   style={`left: ${left}; top: ${top}`}
