@@ -4,6 +4,7 @@
   import { getMouseHandles } from "./mouseHandles";
   import Controls from "./Controls.svelte";
   import { open } from "../game/store";
+  import { touch } from '../invitation/autohide';
 
   export let filename;
 
@@ -28,6 +29,8 @@
 
   const savePosition = (x, y, r) => {
     if ($open) return;
+
+    touch();
 
     const change = {};
 
@@ -70,6 +73,7 @@
   on:mousemove={onMouseMove}
   on:mouseup={onMouseUp}
   on:blur={onMouseUp}
+  on:onmouseout={onMouseUp}
   on:touchstart|preventDefault={onTouchStart}
   on:touchmove|preventDefault={onTouchMove}
   on:touchend={onTouchEnd}

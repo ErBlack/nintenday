@@ -57,6 +57,6 @@
 </style>
 <div class="links">
 	{#each links as { icon, text, href }}
-	<div class="row"><span class="icon">{@html icon}</span><a href="{href}">{text}</a></div>
+	<a a href="{href}" class="row"><span class="icon">{@html icon}</span><span>{text}</span></a>
 	{/each}
 </div>

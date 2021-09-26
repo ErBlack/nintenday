@@ -1,6 +1,8 @@
 <script>
 import Content from './Content.svelte';
 import preload from '../lib/preloadImage';
+import { hidden } from './store';
+import { open } from '../game/store';
 
 let ready = false;
 
@@ -9,9 +11,11 @@ preload('/nintenday/nesc.webp').then(() => {
 });
 
 </script>
-<main class="invitation" class:inbound={ready}>
+{#if  ready}
+<main class="invitation" class:inbound={ready} class:hidden={$hidden || $open}>
     <Content/>
 </main>
+{/if}
 <style>
     .invitation {
         position: absolute;
@@ -27,12 +31,19 @@ preload('/nintenday/nesc.webp').then(() => {
         overflow: auto;
         background: url('/nintenday/nesc.webp') no-repeat center center;
         background-size: 100% 100%;
+        animation-fill-mode: both;
+        animation-duration: .5s;
+        animation-timing-function: ease-out;
     }
 
     .inbound {
-        animation: inbound .5s ease-out;
+        animation-name: inbound;
         animation-delay: .5s;
-        animation-fill-mode: both;
+    }
+
+    .hidden {
+        animation-name: outbound;
+        animation-delay: 0s;
     }
 
     @keyframes inbound {
@@ -41,6 +52,14 @@ preload('/nintenday/nesc.webp').then(() => {
         }
         100% {
             transform: translateY(0);
+        }
+    }
+    @keyframes outbound {
+        0% {
+            transform: translateY(0);
+        }
+        100% {
+            transform: translateY(-100vh);
         }
     }
 
