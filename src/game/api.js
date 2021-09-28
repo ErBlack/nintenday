@@ -1,8 +1,10 @@
+import { get } from 'svelte/store';
+import { player } from '../stores/player';
+
 const host = 'https://functions.yandexcloud.net/d4esa1grli4quj8vs5gs';
-const player = 'erblack';
 
 export const uploadScore = (score) => {
-    request(`${host}?score=${encodeURIComponent(score)}&player=${encodeURIComponent(player)}`);
+    request(`${host}?score=${encodeURIComponent(score)}&player=${encodeURIComponent(get(player))}`);
 };
 
 const request = (url) => {
