@@ -64,6 +64,6 @@
   left="-178px"
   on:touchstart={s3}
   on:click={s3}
-  smallq
+  small
   active={stage > 2}
 />

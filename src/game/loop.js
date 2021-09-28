@@ -1,10 +1,11 @@
-import { Egg } from "./models/Egg";
-import { Chicken } from "./models/Chicken";
-import { get } from "svelte/store";
-import { eggs, chickens, score, fails, playing } from "./store";
-import { BREAK, SPEED } from "./const";
-import random from "../lib/random";
-import { over } from "./ost";
+import { Egg } from './models/Egg';
+import { Chicken } from './models/Chicken';
+import { get } from 'svelte/store';
+import { eggs, chickens, score, fails, playing } from './store';
+import { BREAK, SPEED } from './const';
+import random from '../lib/random';
+import { over } from './ost';
+import { uploadScore } from './api';
 
 let startTime;
 let lastTime;
@@ -80,6 +81,7 @@ const tick = () => {
           newFails += 1;
 
           if (newFails === 3) {
+            uploadScore(score);
             over.currentTime = 0;
             over.play();
           }
@@ -105,7 +107,8 @@ const tick = () => {
         newEggs.push(new Egg());
       }
 
-      spawnDelay = SPEED * speedMultiplier + getOffset() * Math.min(newEggs.length + 1, 2);
+      spawnDelay =
+        SPEED * speedMultiplier + getOffset() * Math.min(newEggs.length + 1, 2);
     }
 
     eggs.set(newEggs);
