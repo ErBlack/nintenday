@@ -81,7 +81,7 @@ const tick = () => {
           newFails += 1;
 
           if (newFails === 3) {
-            uploadScore(score);
+            uploadScore(newScore);
             over.currentTime = 0;
             over.play();
           }
