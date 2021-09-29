@@ -33,7 +33,7 @@ import { expand } from '../expand';
 </script>
 
 <div class="game" class:open={$open}>
-  {#if !$player}
+  {#if !$player && $open}
     <Auth/>
   {:else}
     <Start on:click={start} />

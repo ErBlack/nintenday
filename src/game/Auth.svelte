@@ -2,14 +2,25 @@
 <script>
 import { player } from '../stores/player';
 
+let inited = false;
+if (!$player && !inited) {
+    inited = true;
+
+    setTimeout(() => {
+        document.getElementById('auth').appendChild(
+            document.getElementById('telegram-login-nintenday_bot')
+        );
+    }, 1);
+}
+
 window.onTelegramAuth = ({first_name, last_name, username}) => {
     player.set(`${first_name} ${last_name}${username ? ' ' + username : ''}`.replace(/'/g, ''));
 }
 </script>
 
 
-<div class="auth">
-    <script async src="https://telegram.org/js/telegram-widget.js?15" data-telegram-login="nintenday_bot" data-size="medium" data-radius="8" data-onauth="onTelegramAuth(user)"></script>
+<div class="auth" id="auth">
+
 </div>
 
 <style>
