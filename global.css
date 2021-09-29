@@ -50,3 +50,7 @@ body {
     font-weight: normal;
     font-style: normal;
 }
+
+body > #telegram-login-nintenday_bot {
+  visibility: hidden;
+}
