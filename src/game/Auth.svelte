@@ -34,8 +34,4 @@ window.onTelegramAuth = ({first_name, last_name, username}) => {
         align-items: center;
         justify-content: center;
     }
-
-    .auth:hover {
-        background: rgba(0,0,0,.25);
-    }
 </style>
