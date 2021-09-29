@@ -9,7 +9,7 @@ window.onTelegramAuth = ({first_name, last_name, username}) => {
 
 
 <div class="auth">
-    <script async src="https://telegram.org/js/telegram-widget.js?15" data-telegram-login="nintenday_bot" data-size="medium" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
+    <script async src="https://telegram.org/js/telegram-widget.js?15" data-telegram-login="nintenday_bot" data-size="medium" data-radius="8" data-onauth="onTelegramAuth(user)"></script>
 </div>
 
 <style>
@@ -19,8 +19,12 @@ window.onTelegramAuth = ({first_name, last_name, username}) => {
         right: 0;
         bottom: 0;
         top: 0;
-        width: 240px;
-        height: 40px;
+        width: 0;
+        height: 0;
         margin: auto;
+    }
+
+    .auth > * {
+        transform: translate(-50%);
     }
 </style>
