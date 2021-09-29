@@ -10,6 +10,7 @@
         Приглашаю {start.getDate()} октября
         <br/><br/>
         приходите с 14:00 до 17:00
+        на Александровской фермы 8 (кв 1268)
         <br/><br/>
         Через <Timer start={start}/>
     </p>
@@ -62,13 +63,14 @@
         }
 
         .heading {
-            font-size: 10vw;
+            font-size: 9vw;
             margin: 0 0 1vw 0;
         }
 
         .text {
             font-size: 3vw;
-            line-height: 1;
+            line-height: 1.2;
+            font-weight: normal;
         }
     }
 
@@ -78,13 +80,14 @@
         }
 
         .heading {
-            font-size: 10vh;
+            font-size: 9vh;
             margin: 0 0 1vh 0;
         }
 
         .text {
             font-size: 3vh;
-            line-height: 1;
+            line-height: 1.2;
+            font-weight: normal;
         }
     }
 </style>

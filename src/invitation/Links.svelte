@@ -47,7 +47,8 @@
 
     @media (max-aspect-ratio: 1181/1236) and (max-width: 799px) {
         .icon {
-            font-size: 6vw;
+            font-size: 5vw;
+			margin-bottom: 5px;
         }
 
 		.row {
@@ -57,7 +58,8 @@
 
     @media (min-aspect-ratio: 1181/1236) and (max-height: 799px) {
         .icon {
-            font-size: 6vh;
+            font-size: 5vh;
+			margin-bottom: 5px;
         }
 
 		.row {
