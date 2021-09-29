@@ -45,13 +45,23 @@
 		font-size: 10px;
 	}
 
-    @media (max-width: 799px) {
+    @media (max-aspect-ratio: 1181/1236) and (max-width: 799px) {
         .icon {
             font-size: 6vw;
         }
 
 		.row {
 			font-size: 2vw;
+		}
+    }
+
+    @media (min-aspect-ratio: 1181/1236) and (max-height: 799px) {
+        .icon {
+            font-size: 6vh;
+        }
+
+		.row {
+			font-size: 2vh;
 		}
     }
 </style>

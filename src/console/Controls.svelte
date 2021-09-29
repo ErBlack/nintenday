@@ -2,7 +2,6 @@
   import Button from "../game/Button.svelte";
   import { assetsReady } from "../game/preload";
   import { open } from "../game/store";
-  import { expand } from '../expand';
 
   let stage = 0;
 
@@ -16,7 +15,6 @@
     if (stage === 4 && stage !== temp) {
       assetsReady
       .then(() => {
-        expand();
         $open = true;
       })
 

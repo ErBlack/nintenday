@@ -56,7 +56,7 @@
         }
     }
 
-    @media (max-width: 799px) {
+    @media (max-aspect-ratio: 1181/1236) and (max-width: 799px) {
         .content {
             padding: 10px;
         }
@@ -68,6 +68,22 @@
 
         .text {
             font-size: 3vw;
+            line-height: 1;
+        }
+    }
+
+    @media (min-aspect-ratio: 1181/1236) and (max-height: 799px) {
+        .content {
+            padding: 10px;
+        }
+
+        .heading {
+            font-size: 10vh;
+            margin: 0 0 1vh 0;
+        }
+
+        .text {
+            font-size: 3vh;
             line-height: 1;
         }
     }

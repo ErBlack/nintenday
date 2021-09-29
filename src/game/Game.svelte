@@ -16,11 +16,13 @@
   import Exit from "./Exit.svelte";
 import Auth from './Auth.svelte';
 import { player } from '../stores/player';
+import { expand } from '../expand';
 
   open.subscribe((value) => {
     if (!value) {
       stop();
     } else {
+      expand();
       initSound();
     }
   });
