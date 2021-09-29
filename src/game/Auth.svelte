@@ -19,12 +19,12 @@ window.onTelegramAuth = ({first_name, last_name, username}) => {
         right: 0;
         bottom: 0;
         top: 0;
-        width: 0;
-        height: 0;
-        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
-    .auth > * {
-        transform: translate(-50%);
+    .auth:hover {
+        background: rgba(0,0,0,.25);
     }
 </style>
