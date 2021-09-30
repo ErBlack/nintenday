@@ -34,9 +34,11 @@ import { expand } from '../expand';
 
 <div class="game" class:open={$open}>
   {#if !$player && $open}
-    <Auth/>
-  {:else}
-    <Start on:click={start} />
+    {#if !$player}
+      <Auth/>
+    {:else}
+      <Start on:click={start} />
+    {/if}
   {/if}
   <Exit on:click={() => ($open = false)} />
   {#if $playing}
