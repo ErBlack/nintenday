@@ -3,9 +3,8 @@
   import Console from "./console/Console.svelte";
   import Game from "./game/Game.svelte";
   import Paranja from './Paranja.svelte';
-import Invitation from './invitation/invitation.svelte';
   import { player } from './stores/player';
-import Gamepad from './gamepad/gamepad.svelte';
+  import Gamepad from './gamepad/gamepad.svelte';
 
   const gw = new Array(10).fill({}).map((props, i) => ({
     ...props,
@@ -14,7 +13,6 @@ import Gamepad from './gamepad/gamepad.svelte';
 </script>
 
 <main>
-  <Invitation/>
   <Desk>
     {#if $player}
     <Gamepad/>
