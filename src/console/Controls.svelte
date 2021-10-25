@@ -1,6 +1,7 @@
 <script>
   import Button from "../game/Button.svelte";
   import { assetsReady } from "../game/preload";
+  import { player } from "../stores/player";
   import { open } from "../game/store";
 
   let stage = 0;
@@ -16,6 +17,7 @@
       assetsReady
       .then(() => {
         $open = true;
+        $player = true;
       })
 
       setTimeout(() => (stage = 0), 500);

@@ -5,7 +5,6 @@ import { eggs, chickens, score, fails, playing } from './store';
 import { BREAK, SPEED } from './const';
 import random from '../lib/random';
 import { over } from './ost';
-import { uploadScore } from './api';
 
 let startTime;
 let lastTime;
@@ -81,7 +80,6 @@ const tick = () => {
           newFails += 1;
 
           if (newFails === 3) {
-            uploadScore(newScore);
             over.currentTime = 0;
             over.play();
           }

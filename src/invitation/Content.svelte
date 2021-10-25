@@ -7,12 +7,10 @@
 <section class="content">
     <h1 class="heading">nintenday</h1>
     <p class="text">
-        Приглашаю {start.getDate()} октября
-        <br/><br/>
-        приходите с 14:00 до 17:00
-        на Александровской фермы 8 (кв 1268)
-        <br/><br/>
-        Через <Timer start={start}/>
+        Удачной охоты
+        <br/>
+        <br/>
+        ©2021 год
     </p>
     <Links/>
 </section>

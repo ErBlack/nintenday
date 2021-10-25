@@ -14,8 +14,6 @@
   import { eggs, chickens, open, playing } from "./store";
   import { start, stop } from "./loop";
   import Exit from "./Exit.svelte";
-import Auth from './Auth.svelte';
-import { player } from '../stores/player';
 import { expand } from '../expand';
 
   open.subscribe((value) => {
@@ -34,11 +32,7 @@ import { expand } from '../expand';
 
 <div class="game" class:open={$open}>
   {#if $open}
-    {#if !$player}
-      <Auth/>
-    {:else}
-      <Start on:click={start} />
-    {/if}
+    <Start on:click={start} />
   {/if}
   <Exit on:click={() => ($open = false)} />
   {#if $playing}
